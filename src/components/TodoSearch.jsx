@@ -1,8 +1,4 @@
-import React, { useContext } from "react";
-import { TodoContext } from "../context/TodoContext";
-
-export default function TodoSearch() {
-  const { searchValue, setSearchValue } = useContext(TodoContext);
+export default function TodoSearch({ searchValue, setSearchValue }) {
   return (
     <input
       placeholder="Search...."

@@ -10,16 +10,24 @@ import Modal from "../modals/Modal";
 import TodoSkeleton from "./TodoSkeleton";
 
 function AppUI() {
-  const { toggleModal, setToggleModal, loading } = useContext(TodoContext);
+  const {
+    toggleModal,
+    setToggleModal,
+    loading,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+  } = useContext(TodoContext);
   return (
     <main className="flex flex-col justify-center items-center bg-slate-400 min-h-screen ">
-      <TodoCounter />
-      <TodoSearch />
+      <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       {loading &&
         Array(4)
           .fill()
-          .map(()=> <TodoSkeleton />)}
+          .map(() => <TodoSkeleton />)}
       <TodoContext.Consumer>
         {/* Esta es una forma opcional de hacer el useContext*/}
         {({
