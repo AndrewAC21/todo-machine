@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
-import { TodoContext } from "../context/TodoContext";
-function TodoForm() {
-  const { createTodo, setToggleModal } = useContext(TodoContext);
+function TodoForm( { createTodo, setToggleModal } ) {
   const [newTodoValue, setNewTodoValue] = useState("");
   const onSubmit = (e) => {
     e.preventDefault();
